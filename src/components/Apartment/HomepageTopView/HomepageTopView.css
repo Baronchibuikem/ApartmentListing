@@ -1,0 +1,113 @@
+html,
+body {
+  height: 100%;
+  font-family: "Source Sans Pro", sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/*------------------
+  Hero section
+---------------------*/
+
+.hero-section {
+  position: relative;
+  height: 870px;
+  margin-bottom: -54px;
+  background-image: url("../../../assests/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.hero-text {
+  padding-top: 300px;
+  text-align: center;
+}
+
+.hero-text h2 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 22px;
+  margin-bottom: 50px;
+}
+
+/*------------------
+  Filter search
+---------------------*/
+
+.filter-search {
+  position: relative;
+  z-index: 2;
+}
+
+.filter-form {
+  padding: 31px;
+  background: #30caa0;
+  border-radius: 3px;
+}
+
+.filter-form input {
+  background: #fff;
+  height: 46px;
+  border: none;
+  border-radius: 2px;
+  width: calc(43% - 20px);
+  margin-right: 20px;
+  padding: 5px 20px;
+  font-size: 14px;
+}
+
+.filter-form select {
+  background: #fff;
+  height: 46px;
+  border: none;
+  border-radius: 2px;
+  width: calc(20% - 20px);
+  margin-right: 20px;
+  padding-left: 20px;
+  font-size: 14px;
+}
+.set-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.filter-form .fs-submit {
+  background: #333;
+  width: 16%;
+  border-radius: 2px;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+
+/*---------------------
+	Commom elements
+-----------------------*/
+
+/* Buttons */
+
+.site-btn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  min-width: 170px;
+  text-align: center;
+  background: #30caa0;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}

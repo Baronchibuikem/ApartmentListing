@@ -1,0 +1,19 @@
+/*------------------
+  Services section
+---------------------*/
+.services-section {
+  background-image: url("../../../assests/img/service-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.services-section .section-title {
+  margin-bottom: 40px;
+  padding-top: 15px;
+}
+.service-bg {
+  background-image: url("../../../assests/img/service.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}

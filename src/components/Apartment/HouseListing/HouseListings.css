@@ -1,0 +1,25 @@
+.feature-section .container {
+  margin-bottom: -50px;
+}
+
+.feature-item {
+  margin-bottom: 50px;
+}
+
+.feature-item .room-price {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  background: #fff;
+  text-align: center;
+  padding: 13px;
+  background: #30caa0;
+  color: #fff;
+}
+
+.page-top-section {
+  background-image: url("../../../assests/img/page-top-bg.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
