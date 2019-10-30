@@ -22,3 +22,7 @@ Cloudinary was used to store the media files, you can configure your cloudinary_
 
 You can run this application with django server after your npm build have completed, which means the index file which will be compiled in the build folder will serve as your template or you can run them different where npm start will run the app on Localhost:3000 while python manage.py runserver will start the server side on port 127.0.0.1.
 
+App demo
+
+            http://housingpartments.herokuapp.com
+
