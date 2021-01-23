@@ -1,83 +1,56 @@
 import React from "react";
-import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBNavItem,
-  MDBContainer
-} from "mdbreact";
 import { Link } from "react-router-dom";
+import logo from "../../assests/img/lo.jpeg";
+import "../../assests/css/custom.css";
 
-class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapse: false
-    };
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
-    this.setState({
-      collapse: !this.state.collapse
-    });
-  }
-
-  render() {
-    const bgPink = { backgroundColor: "#30caa0" };
-    const link = { padding: "10px", color: "white" };
-    return (
-      <div>
-        <header>
-          <MDBNavbar dark expand="sm" fixed="top" style={bgPink}>
-            <MDBContainer>
-              <MDBNavbarToggler onClick={this.onClick} />
-              <MDBCollapse isOpen={this.state.collapse} navbar>
-                <MDBNavbarNav left>
-                  <MDBNavbarBrand href="/">EMPIREHOUSING</MDBNavbarBrand>
-                </MDBNavbarNav>
-                <MDBNavbarNav right>
-                  <MDBNavItem active>
-                    <Link style={link} to="/">
-                      HOME
-                    </Link>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <Link style={link} to="/apartments">
-                      LISTING
-                    </Link>
-                  </MDBNavItem>
-
-                  <MDBNavItem>
-                    <Link style={link} to="/about-us">
-                      ABOUT US
-                    </Link>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <Link style={link} to="/services">
-                      OUR SERVICES
-                    </Link>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <Link style={link} to="/agents">
-                      AGENTS
-                    </Link>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <Link style={link} to="/">
-                      CONTACT
-                    </Link>
-                  </MDBNavItem>
-                </MDBNavbarNav>
-              </MDBCollapse>
-            </MDBContainer>
-          </MDBNavbar>
-        </header>
+export default function Navbar() {
+  return (
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div className="container">
+        <Link class="navbar-brand" to="/">
+          <img src={logo} alt="logo" width="30%" />
+        </Link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav nav-fill w-100">
+            <li class="nav-item">
+              <Link class="nav-link" to="/">
+                HOME
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/about-us">
+                ABOUT US
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/apartments">
+                PROPERTIES
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/agents">
+                REALTORS
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/services">
+                SERVICES
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
-    );
-  }
+    </nav>
+  );
 }
-
-export default Navbar;
