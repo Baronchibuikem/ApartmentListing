@@ -9,13 +9,13 @@ class HomepageTopView extends Component {
         {/* Hero section */}
         <section className="hero-section set-bg">
           <div className="container hero-text text-white">
-            <h2>Find a apartment anywhere in Nigeria</h2>
-            <p>
+            <h3>Find available apartments anywhere in Nigeria</h3>
+            <h6 className="text-white">
               Search real estate apartment houses and condos and more on
-              ToqueHousing.com®.
+              Properties.com
               <br />
               Find property info from our most comprehensive source data.
-            </p>
+            </h6>
             <Link to="/apartments" className="site-btn">
               VIEW DETAIL
             </Link>

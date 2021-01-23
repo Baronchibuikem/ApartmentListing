@@ -9,7 +9,7 @@ import {
   MDBCarouselItem,
   MDBView,
   MDBMask,
-  MDBContainer
+  MDBContainer,
 } from "mdbreact";
 
 class HouseListingDetail extends Component {
@@ -33,7 +33,9 @@ class HouseListingDetail extends Component {
       agent,
       image5,
       description,
-      available
+      available,
+      agent_image,
+      agent_phone,
     } = this.props.listingDetail;
     return (
       <section className="page-section">
@@ -159,14 +161,20 @@ class HouseListingDetail extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 single-list-page"></div>
+            <div className="col-lg-4 single-list-page">
+              <h4>{agent}</h4>
+              <h6>
+                <u>0{agent_phone}</u>
+              </h6>
+              <img className="d-block w-100" src={agent_image} alt="agent" />
+            </div>
           </div>
         </div>
       </section>
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { listingDetail: state.apartments.apartmentId };
 };
 

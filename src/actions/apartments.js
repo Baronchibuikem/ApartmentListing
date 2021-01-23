@@ -5,7 +5,7 @@ import {
   GET_FEATURED_APARTMENTS,
   GET_AGENTS,
   GET_AGENT_ID,
-  SEND_SUBSCRIPTION
+  SEND_SUBSCRIPTION,
 } from "./types";
 import projectBaseUrl from "./projectBaseUrl";
 
@@ -20,129 +20,58 @@ import projectBaseUrl from "./projectBaseUrl";
 
 // ----------> Get all apartments <----------------
 export const getApartments = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     const response = await projectBaseUrl.get("/apartment/");
     dispatch({ type: GET_APARTMENTS, payload: response.data });
   };
 };
 
-// export const getApartments = () => dispatch => {
-//   axios
-//     .get("http://127.0.0.1:8000/apartment/")
-//     .then(response => {
-//       dispatch({
-//         type: GET_APARTMENTS,
-//         payload: response.data
-//       });
-//     })
-//     .catch(error => console.log(error));
-// };
-
 // ---------> Apartment ID <------------------------
-export const getApartmentId = id => {
-  return async dispatch => {
+export const getApartmentId = (id) => {
+  return async (dispatch) => {
     const response = await projectBaseUrl.get(`/apartment/${id}/`);
     dispatch({ type: GET_APARTMENT_ID, payload: response.data });
-
-    // export const getApartmentId = id => dispatch => {
-    //   axios
-    //     .get(`http://127.0.0.1:8000/apartment/${id}`)
-    //     .then(response => {
-    //       dispatch({
-    //         type: GET_APARTMENT_ID,
-    //         payload: response.data
-    //       });
-    //     })
-    //     .catch(error => console.log(error));
-    // };
   };
 };
 
 // ----------> Get Recent Apartments <--------------
 
 export const getRecentApartments = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     const response = await projectBaseUrl.get("/apartment/recent/");
     dispatch({ type: GET_RECENT_APARTMENTS, payload: response.data });
   };
 };
 
-// export const getRecentApartments = () => dispatch => {
-//   axios
-//     .get("http://127.0.0.1:8000/apartment/recent/")
-//     .then(response => {
-//       dispatch({
-//         type: GET_RECENT_APARTMENTS,
-//         payload: response.data
-//       });
-//     })
-//     .catch(error => console.log(error));
-// };
-
 // ------------> get featured apartments <---------------
 export const getFeaturedApartments = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     const response = await projectBaseUrl.get("/apartment/featured/");
     dispatch({ type: GET_FEATURED_APARTMENTS, payload: response.data });
   };
 };
 
-// export const getFeaturedApartments = () => dispatch => {
-//   axios
-//     .get("http://127.0.0.1:8000/apartment/featured/")
-//     .then(response => {
-//       dispatch({
-//         type: GET_FEATURED_APARTMENTS,
-//         payload: response.data
-//       });
-//     })
-//     .catch(error => console.log(error));
-// };
-
 // ------------> get Agent <---------------
 
 export const getAgents = () => {
-  return async dispatch => {
-    const response = await projectBaseUrl.get("/apartment/agent/");
+  return async (dispatch) => {
+    const response = await projectBaseUrl.get("/apartment/agents/");
     dispatch({ type: GET_AGENTS, payload: response.data });
   };
 };
-// export const getFeaturedApartments = () => dispatch => {
-//   axios
-//     .get("http://127.0.0.1:8000/apartment/agent/")
-//     .then(response => {
-//       dispatch({
-//         type: GET_FEATURED_APARTMENTS,
-//         payload: response.data
-//       });
-//     })
-//     .catch(error => console.log(error));
-// };
 
 // ---------> AGENT ID <------------------------
-export const getAgentId = id => {
-  return async dispatch => {
+export const getAgentId = (id) => {
+  return async (dispatch) => {
     const response = await projectBaseUrl.get(`/apartment/agent/${id}/`);
     dispatch({ type: GET_AGENT_ID, payload: response.data });
-
-    // export const getApartmentId = id => dispatch => {
-    //   axios
-    //     .get(`http://127.0.0.1:8000/apartment/${id}`)
-    //     .then(response => {
-    //       dispatch({
-    //         type: GET_APARTMENT_ID,
-    //         payload: response.data
-    //       });
-    //     })
-    //     .catch(error => console.log(error));
-    // };
   };
 };
 
-export const postSubscription = message => {
-  return async dispatch => {
+export const postSubscription = (message) => {
+  return async (dispatch) => {
     const response = await projectBaseUrl.post("/apartment/subscribe/", {
-      message
+      message,
     });
     dispatch({ type: SEND_SUBSCRIPTION, payload: response.data });
   };

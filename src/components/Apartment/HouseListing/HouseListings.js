@@ -8,7 +8,7 @@ import "./HouseListings";
 
 class HouseListings extends Component {
   static propTypes = {
-    apartments: PropTypes.array.isRequired
+    apartments: PropTypes.array.isRequired,
   };
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class HouseListings extends Component {
               <h4>Browse houses and flats for sale and to rent in your area</h4>
             </div>
             <div className="row">
-              {this.props.apartments.map(apartment => {
+              {this.props.apartments.map((apartment) => {
                 const { id } = apartment;
                 return (
                   <div className="col-lg-4 col-md-6">
@@ -77,7 +77,7 @@ class HouseListings extends Component {
                           </div>
                         </div>
                         <Link className="room-price" to={`/apartment/${id}`}>
-                          ${apartment.price}
+                          ₦{apartment.price}
                         </Link>
                       </div>
                     </div>
@@ -91,11 +91,8 @@ class HouseListings extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  apartments: state.apartments.apartments
+const mapStateToProps = (state) => ({
+  apartments: state.apartments.apartments,
 });
 
-export default connect(
-  mapStateToProps,
-  { getApartments }
-)(HouseListings);
+export default connect(mapStateToProps, { getApartments })(HouseListings);

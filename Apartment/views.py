@@ -1,6 +1,6 @@
 from .models import Apartment, Agent, Subscription, Contact
 from .serializers import ApartmentSerializer, AgentSerializer, SubscriptionSerializer, ContactSerializer
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, generics
 from rest_framework.permissions import IsAuthenticated
 
 # Views for all apartment list
@@ -11,7 +11,6 @@ class ApartmentViewSet(viewsets.ModelViewSet):
     that are authenticated can make changes to this view 
     """
     queryset = Apartment.objects.all().filter(available=True)
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = ApartmentSerializer
 
 # Views to query Apartment models to display only featured list
@@ -38,14 +37,20 @@ class RecentListViewSet(viewsets.ModelViewSet):
     serializer_class = ApartmentSerializer
 
 #Agent viewset
-class AgentViewSet(viewsets.ModelViewSet):
+class AgentListView(generics.ListAPIView):
     """
     Querying all instances of the agent models and returning all the fields and also ensuring only authenticated
     users can make changes to this model
     """
     queryset = Agent.objects.all()
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     serializer_class = AgentSerializer
+
+class AgenDetailView(generics.RetrieveAPIView):
+    queryset = Agent.objects.all()
+    serializer_class = AgentSerializer
+    lookup_field = "id"
+    lookup_url_kwarg = "id"
+
 
 
 # views for contact

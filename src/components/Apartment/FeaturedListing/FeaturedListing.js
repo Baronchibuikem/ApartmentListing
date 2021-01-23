@@ -5,7 +5,7 @@ import { getFeaturedApartments } from "../../../actions/apartments";
 
 class FeaturedListings extends Component {
   static propTypes = {
-    featuredApartments: PropTypes.array.isRequired
+    featuredApartments: PropTypes.array.isRequired,
   };
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class FeaturedListings extends Component {
               <p>Browse houses and flats for sale and to rent in your area</p>
             </div>
             <div className="row">
-              {this.props.featuredApartments.map(apartment => (
+              {this.props.featuredApartments.map((apartment) => (
                 <div className="col-lg-4 col-md-6" key={apartment.id}>
                   <div className="feature-item">
                     <div className="feature-pic set-bg" data-setbg>
@@ -72,7 +72,7 @@ class FeaturedListings extends Component {
                           </div>
                         </div>
                       </div>
-                      <div className="room-price">${apartment.price}</div>
+                      <div className="room-price"> ₦{apartment.price}</div>
                     </div>
                   </div>
                 </div>
@@ -86,11 +86,10 @@ class FeaturedListings extends Component {
 }
 
 // this comes from the reducer
-const mapStateToProps = state => ({
-  featuredApartments: state.apartments.featuredApartments
+const mapStateToProps = (state) => ({
+  featuredApartments: state.apartments.featuredApartments,
 });
 
-export default connect(
-  mapStateToProps,
-  { getFeaturedApartments }
-)(FeaturedListings);
+export default connect(mapStateToProps, { getFeaturedApartments })(
+  FeaturedListings
+);

@@ -1,10 +1,11 @@
 from django.db import models
 from datetime import datetime
+from cloudinary.models import CloudinaryField
 
 # Agent model. --> is_AOTM means Agent Of The Month which will be filtered in the view to display an agent of the month
 class Agent(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="media/agents", blank=False)
+    image = CloudinaryField("user_image", null=True, blank=True)
     phone = models.IntegerField()
     email = models.EmailField()
     address = models.CharField(max_length=100)
@@ -28,11 +29,11 @@ class Apartment(models.Model):
     bedrooms = models.PositiveIntegerField()
     bathrooms = models.PositiveIntegerField()
     price =  models.PositiveIntegerField()
-    image1 = models.ImageField(upload_to="media/apartment1", blank=False)
-    image2 = models.ImageField(upload_to="media/apartment2", blank=True)
-    image3 = models.ImageField(upload_to="media/apartment3", blank=True)
-    image4 = models.ImageField(upload_to="media/apartment4", blank=True)
-    image5 = models.ImageField(upload_to="media/apartment5", blank=True)
+    image1 = CloudinaryField("user_image", null=True, blank=True)
+    image2 = CloudinaryField("user_image", null=True, blank=True)
+    image3 = CloudinaryField("user_image", null=True, blank=True)
+    image4 = CloudinaryField("user_image", null=True, blank=True)
+    image5 = CloudinaryField("user_image", null=True, blank=True)
     description = models.TextField()
     available = models.BooleanField(default=True)
     offer = models.CharField(choices=APARTMENT_CHOICES, max_length=100, default="sale")
